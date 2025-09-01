@@ -1,4 +1,4 @@
-# Song
+# Singing
 This is a small project for practicing singing.
 
 I created a breathing count exercise for my singing class. I needed a counter to practice with, so I implemented this code for that purpose.
