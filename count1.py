@@ -1,25 +1,27 @@
 import time
-import sys
+import subprocess
 
 n = int(input("Enter a number: "))
 
 # 1 second delay at the beginning
 time.sleep(1)
 
-def beep():
-    sys.stdout.write("\a")
-    sys.stdout.flush()
+def beep_inhale():
+    subprocess.Popen(["afplay", "beep.mp3"])  # replace with your inhale sound
+
+def beep_exhale():
+    subprocess.Popen(["afplay", "beep2.mp3"])  # replace with your exhale sound
 
 # Growing cycles from 3 to n
 for k in range(3, n + 1):
     for i in range(1, k + 1):
         print(f"\033[92m{i}\033[0m", end=" ", flush=True)
-        beep()
+        beep_inhale()
         time.sleep(1)
     print()
     for i in range(k, 0, -1):
         print(f"\033[93m{i}\033[0m", end=" ", flush=True)
-        beep()
+        beep_exhale()
         time.sleep(1)
     print()
 
@@ -27,11 +29,11 @@ for k in range(3, n + 1):
 for k in range(n - 1, 2, -1):
     for i in range(1, k + 1):
         print(f"\033[92m{i}\033[0m", end=" ", flush=True)
-        beep()
+        beep_inhale()
         time.sleep(1)
     print()
     for i in range(k, 0, -1):
         print(f"\033[93m{i}\033[0m", end=" ", flush=True)
-        beep()
+        beep_exhale()
         time.sleep(1)
     print()
