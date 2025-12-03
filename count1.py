@@ -14,7 +14,7 @@ def beep_exhale():
 
 # Growing cycles from 3 to n
 for k in range(3, n + 1):
-    for i in range(1, k + 1):
+    for i in range(k, 0, -1):
         print(f"\033[92m{i}\033[0m", end=" ", flush=True)
         beep_inhale()
         time.sleep(1)
@@ -27,7 +27,7 @@ for k in range(3, n + 1):
 
 # Shrinking cycles from n-1 down to 3
 for k in range(n - 1, 2, -1):
-    for i in range(1, k + 1):
+    for i in range(k, 0, -1):
         print(f"\033[92m{i}\033[0m", end=" ", flush=True)
         beep_inhale()
         time.sleep(1)
